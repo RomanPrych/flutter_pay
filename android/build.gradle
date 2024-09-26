@@ -31,7 +31,6 @@ android {
         main.java.srcDirs += 'src/main/kotlin'
     }
     defaultConfig {
-        namespace "com.xamelon.flutter_pay"
         minSdkVersion 16
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -48,6 +47,9 @@ android {
         targetCompatibility = 1.8
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
+    }
+    if (project.android.hasProperty('namespace')) {
+        namespace 'com.xamelon.flutter_pay'
     }
     buildToolsVersion = '28.0.3'
 }
