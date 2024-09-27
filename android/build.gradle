@@ -53,6 +53,19 @@ android {
         namespace 'com.xamelon.flutter_pay'
     }
     buildToolsVersion = '28.0.3'
+/// del 1
+    subprojects {
+        afterEvaluate { project ->
+            if (project.hasProperty('android')) {
+                project.android {
+                    if (namespace == null) {
+                        namespace project.group
+                    }
+                }
+            }
+        }
+    }
+    /// del 1
 }
 
 dependencies {
