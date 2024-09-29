@@ -31,8 +31,8 @@ android {
         main.java.srcDirs += 'src/main/kotlin'
     }
     defaultConfig {
-
-
+        minSdkVersion 20
+        targetSdkVersion 33
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled = true
 
@@ -40,31 +40,19 @@ android {
 
 
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = '11'
     }
 
     compileOptions {
         coreLibraryDesugaringEnabled true
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
     if (project.android.hasProperty('namespace')) {
         namespace 'com.xamelon.flutter_pay'
     }
     buildToolsVersion = '33.0.3' //28.0.3
-/// del 1
-    subprojects {
-        afterEvaluate { project ->
-            if (project.hasProperty('com.android.library')) {
-                project.android {
-                    if (namespace == null) {
-                        namespace project.group
-                    }
-                }
-            }
-        }
-    }
-    /// del 1
+
 }
 
 dependencies {
