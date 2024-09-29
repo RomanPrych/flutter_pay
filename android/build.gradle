@@ -26,29 +26,27 @@ apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 33
-
+    namespace "com.xamelon.flutter_pay"
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
     defaultConfig {
-        namespace "com.xamelon.flutter_pay"
+
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        multiDexEnabled true
+        multiDexEnabled = true
 
     }
 
 
     kotlinOptions {
-        jvmTarget = '11'
+        jvmTarget = '1.8'
     }
 
     compileOptions {
-        //coreLibraryDesugaringEnabled true
-        sourceCompatibility = "1.8"
-        targetCompatibility = 1.8
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
+        coreLibraryDesugaringEnabled true
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
     if (project.android.hasProperty('namespace')) {
         namespace 'com.xamelon.flutter_pay'
