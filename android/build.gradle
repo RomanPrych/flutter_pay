@@ -33,11 +33,6 @@ android {
     defaultConfig {
         namespace "com.xamelon.flutter_pay"
 
-        minSdkVersion 21
-        targetSdkVersion 33
-        coreLibraryDesugaringEnabled true
-        coreLibraryDesugaringFile 'com.android.tools:desugar_jdk_libs:2.1.2'
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
     }
@@ -57,7 +52,7 @@ android {
     if (project.android.hasProperty('namespace')) {
         namespace 'com.xamelon.flutter_pay'
     }
-    buildToolsVersion = '28.0.3'
+    buildToolsVersion = '33.0.3' //28.0.3
 /// del 1
     subprojects {
         afterEvaluate { project ->
