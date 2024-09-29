@@ -35,6 +35,10 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
+
+        minSdkVersion 21
+        targetSdkVersion 33
+
     }
 
 
