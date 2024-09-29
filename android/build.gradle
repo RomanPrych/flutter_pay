@@ -44,7 +44,7 @@ android {
     }
 
     compileOptions {
-        coreLibraryDesugaringEnabled true
+        //coreLibraryDesugaringEnabled true
         sourceCompatibility = "1.8"
         targetCompatibility = 1.8
         sourceCompatibility JavaVersion.VERSION_11
