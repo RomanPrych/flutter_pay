@@ -2,14 +2,14 @@ group 'com.xamelon.flutter_pay'
 version '1.0-SNAPSHOT'
 
 buildscript {
-    ext.kotlin_version = '1.9.22' //'1.9.22'
+    ext.kotlin_version = '1.8.21' //'1.9.22'
     repositories {
         google()
         mavenCentral()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:8.1.4'
+        classpath 'com.android.tools.build:gradle:7.4.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
@@ -25,7 +25,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 33
+    compileSdkVersion 31
     namespace "com.xamelon.flutter_pay"
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
@@ -44,19 +44,19 @@ android {
     }
 
     compileOptions {
-        coreLibraryDesugaringEnabled true
         sourceCompatibility JavaVersion.VERSION_11
         targetCompatibility JavaVersion.VERSION_11
     }
 
     buildToolsVersion = '33.0.3' //28.0.3
-
+    lintOptions {
+        disable 'InvalidPackage'
+    }
 }
 
 dependencies {
-    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.3'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'com.google.android.gms:play-services-wallet:19.4.0'
+    implementation 'com.google.android.gms:play-services-wallet:19.2.1'
 
     implementation 'androidx.window:window:1.0.0'
     implementation 'androidx.window:window-java:1.0.0'
