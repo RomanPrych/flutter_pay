@@ -9,6 +9,8 @@ buildscript {
     }
 
     dependencies {
+        classpath 'com.android.tools:desugar_jdk_libs:2.1.5'
+
         classpath 'com.android.tools.build:gradle:8.1.4'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
