@@ -13,7 +13,6 @@ import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
 import io.flutter.plugin.common.PluginRegistry
-import io.flutter.plugin.common.PluginRegistry.Registrar
 import org.json.JSONArray
 import org.json.JSONObject
 
@@ -41,17 +40,6 @@ class FlutterPayPlugin : FlutterPlugin, MethodCallHandler, PluginRegistry.Activi
         this.googlePayClient = Wallet.getPaymentsClient(this.activity, walletOptions)
     }
 
-    companion object {
-        @JvmStatic
-        fun registerWith(registrar: Registrar) {
-            val channel = MethodChannel(registrar.messenger(), "flutter_pay")
-            val plugin = FlutterPayPlugin()
-            channel.setMethodCallHandler(plugin)
-            registrar.addActivityResultListener(plugin)
-            plugin.activity = registrar.activity()!!
-            plugin.createPaymentsClient()
-        }
-    }
 
     override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: Result) {
         this.lastResult = result
